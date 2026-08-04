@@ -49,7 +49,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${IMAGE_NAME} ."
+                sh "sudo docker build -t ${IMAGE_NAME} ."
             }
         }
 
@@ -57,8 +57,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        if [ \$(docker ps -aq -f name=${CONTAINER_NAME}) ]; then
-                            docker rm -f ${CONTAINER_NAME}
+                        if [ \$(sudo docker ps -aq -f name=${CONTAINER_NAME}) ]; then
+                            sudo docker rm -f ${CONTAINER_NAME}
                         fi
                     """
                 }
@@ -67,14 +67,14 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh "docker run -d --name ${CONTAINER_NAME} -p ${APP_PORT}:8080 ${IMAGE_NAME}"
+                sh "sudo docker run -d --name ${CONTAINER_NAME} -p ${APP_PORT}:8080 ${IMAGE_NAME}"
             }
         }
 
         stage('Verify Deployment') {
             steps {
                 sh "sleep 5"
-                sh "docker ps -f name=${CONTAINER_NAME}"
+                sh "sudo docker ps -f name=${CONTAINER_NAME}"
             }
         }
     }
