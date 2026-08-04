@@ -12,4 +12,4 @@ RUN ./mvnw clean package -DskipTests -B
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "target/demo-app-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
