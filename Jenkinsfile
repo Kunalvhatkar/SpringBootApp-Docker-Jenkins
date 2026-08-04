@@ -4,8 +4,14 @@ pipeline {
     triggers {
         githubPush()
     }
+    
+    parameters {
+        string(name: 'EC2_HOST', defaultValue: 'ec2-13-220-102-244.compute-1.amazonaws.com')
+        string(name: 'EC2_USER', defaultValue: 'ubuntu')
+    }
 
     environment {
+        SSH_CRED_ID = 'springboot-app'
         IMAGE_NAME = "demo-hello-world"
         CONTAINER_NAME = "demo-hello-world-container"
         APP_PORT = "8080"
@@ -16,6 +22,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Verify SSH Connectivity') {
+            steps {
+                sshagent(credentials: ["${SSH_CRED_ID}"]) {
+                    sh "ssh -o StrictHostKeyChecking=no ${params.EC2_USER}@${params.EC2_HOST} 'echo Connected successfully'"
+                }
             }
         }
 
