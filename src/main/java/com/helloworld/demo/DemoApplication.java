@@ -13,8 +13,8 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@GetMapping("/hello")
+	@GetMapping("/get")
 	public String hello() {
-		return "Hello, World!";
+		return "Hello, World! this my first spring boot application CI/CD Pipeline";
 	}
 }
