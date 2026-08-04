@@ -40,7 +40,7 @@ pipeline {
                     if (dockerCheck != 0) {
                         error("Docker is not installed on this EC2 instance. Please install Docker before running this pipeline.")
                     } else {
-                        sh 'docker --version'
+                        sh 'sudo docker --version'
                         echo "Docker is installed. Proceeding to build."
                     }
                 }
