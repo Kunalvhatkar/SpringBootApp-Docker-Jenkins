@@ -5,10 +5,7 @@ pipeline {
         githubPush()
     }
 
-    parameters {
-        string(name: 'EC2_HOST', defaultValue: 'ec2-13-220-102-244.compute-1.amazonaws.com')
-        string(name: 'EC2_USER', defaultValue: 'ubuntu')
-    }
+    
 
     environment {
         SSH_CRED_ID   = 'springboot-app'
