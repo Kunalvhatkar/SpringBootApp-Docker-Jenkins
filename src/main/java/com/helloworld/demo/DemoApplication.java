@@ -20,6 +20,6 @@ public class DemoApplication {
 
 	@GetMapping("/get")
 	public String helloworlod() {
-		return "Hello, World! This is my first Spring Boot application CI/CD Pipeline.";
+		return "Hello, World! This is my first Spring Boot application CI/CD Pipeline resolve error.";
 	}
 }
