@@ -15,6 +15,11 @@ public class DemoApplication {
 
 	@GetMapping("/get")
 	public String hello() {
-		return "Hello, World! this my first spring boot application CI/CD Pipeline | I added Webhook to trigger the build and deployment of the application	";
+		return "Hello, World! This is my first Spring Boot application CI/CD Pipeline. I added a webhook to trigger build and deployment.";
+	}
+
+	@GetMapping("/get")
+	public String helloworlod() {
+		return "Hello, World! This is my first Spring Boot application CI/CD Pipeline.";
 	}
 }
