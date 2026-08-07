@@ -22,4 +22,9 @@ public class DemoApplication {
 	public String helloworlod() {
 		return "Hello, World! This is my first Spring Boot application CI/CD Pipeline resolve error./n I added a webhook to trigger build and deployment.";
 	}
+
+	@GetMapping("/update")
+	public String update() {
+		return "updated line.";
+	}
 }
