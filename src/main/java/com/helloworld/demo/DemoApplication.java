@@ -25,6 +25,6 @@ public class DemoApplication {
 
 	@GetMapping("/update")
 	public String update() {
-		return "updated line.";
+		return "updated line | added new function in GETMapping.";
 	}
 }
